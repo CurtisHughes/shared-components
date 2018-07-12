@@ -1,0 +1,23 @@
+{
+  "name": "shared-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "babel src -d build",
+    "build-with-files": "babel src -d build --copy-files",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "react": "^16.1.1"
+  },
+  "peerDependencies": {
+    "react": ">= 16.1.1"
+  }
+}
