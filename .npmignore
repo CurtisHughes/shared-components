@@ -1,4 +1,4 @@
 .babelrc
 /src
-public
-examples
+/examples
+webpack.config.js
