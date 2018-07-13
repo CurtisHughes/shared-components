@@ -1,5 +1,7 @@
 # Shared Components
 Testing shared component functionality. Most of the functionality is derived from [Sharing React components between separate projects, self hosting with git, installing with yarn/npm](https://medium.com/@Powderham/sharing-react-components-between-separate-projects-self-hosting-with-git-installing-with-yarn-npm-d3275b64239c)
+and [this one](https://medium.com/dailyjs/building-a-react-component-with-webpack-publish-to-npm-deploy-to-github-guide-6927f60b3220)
+
 
 ### Installation
 The npm cli provides functionality for installing packages directly from a git remote host https://docs.npmjs.com/cli/install. 

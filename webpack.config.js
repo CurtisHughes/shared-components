@@ -1,34 +1,29 @@
 const path = require('path');
-const build = path.resolve(__dirname, 'build');
-const src = path.resolve(__dirname, 'src');
-const public = path.resolve(__dirname, 'public');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-// Webpack configuration
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
+    template: path.join(__dirname, "examples/src/index.html"),
+    filename: "./index.html"
+});
 module.exports = {
-  entry: path.join(src, 'index.js'),
-  output: {
-    path: build,
-    filename: 'app.bundle.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: [
-          'babel-loader',
-        ],
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(public, 'index.html'),
-    }),
-  ],
+    entry: path.join(__dirname, "examples/src/index.js"),
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: "babel-loader",
+                exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            }
+        ]
+    },
+    plugins: [htmlWebpackPlugin],
+    resolve: {
+        extensions: [".js", ".jsx"]
+    },
+    devServer: {
+        port: 3001
+    }
 };
