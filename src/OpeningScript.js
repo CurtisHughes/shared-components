@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import styles from './OpeningScript.css';
 
 const OpeningScript = (props) => {
     const openingScriptMap = {
@@ -12,7 +13,7 @@ const OpeningScript = (props) => {
   
     return (
       <ul
-        className={ (props.openingScriptText) ? styles.openingScript : styles.hiddenOpeningScript }
+        className={"openingScript"}
         id="OpeningScript"
         key="OpeningScript">
         <li
