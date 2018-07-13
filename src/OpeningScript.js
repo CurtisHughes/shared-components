@@ -1,3 +1,5 @@
+import React from "react";
+
 const OpeningScript = (props) => {
     const openingScriptMap = {
         technicianFirstName: props.technicianFirstName || '______',
