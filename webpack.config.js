@@ -10,7 +10,10 @@ module.exports = {
   entry: path.join(src, 'index.js'),
   output: {
     path: dist,
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
+    libraryTarget: 'umd',      
+    publicPath: '/dist/',      
+    umdNamedDefine: true
   },
   plugins: [
     new MiniCssExtractPlugin('style.bundle.css'),
