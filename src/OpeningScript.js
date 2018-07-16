@@ -1,4 +1,5 @@
 import React from 'react';
+import './OpeningScript.css';
 
 const OpeningScript = (props) => {
     const openingScriptMap = {
