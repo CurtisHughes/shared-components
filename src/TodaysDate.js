@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './TodaysDate.css';
+import './TodaysDate.css';
 
 const TodaysDate = () => 
   <h1>{`Today's date is ${Date()}`}</h1>;

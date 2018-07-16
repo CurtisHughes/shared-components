@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './OpeningScript.css';
 
 const OpeningScript = (props) => {
     const openingScriptMap = {
@@ -16,10 +15,8 @@ const OpeningScript = (props) => {
         className={"openingScript"}
         id="OpeningScript"
         key="OpeningScript">
-        <li
-          className={ styles.openingScriptItem }>
-          <span
-            className={ styles.openingScriptIcon } />
+        <li>
+          <span />
           <span>
             { formatOpeningScriptText(openingScriptMap, props.openingScriptText) }
           </span>
