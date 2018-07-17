@@ -18,7 +18,7 @@ const OpeningScript = (props) => {
         id="OpeningScript"
         key="OpeningScript">
         <li>
-          { svg }
+          <img src={svg}/>
           <span />
           <span>
             { formatOpeningScriptText(openingScriptMap, props.openingScriptText) }
