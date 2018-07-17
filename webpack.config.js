@@ -3,8 +3,6 @@ const path = require('path');
 const dist = path.resolve(__dirname, 'dist');
 const src = path.resolve(__dirname, 'src');
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 // Webpack configuration
 module.exports = {
   entry: path.join(src, 'index.js'),
@@ -15,9 +13,6 @@ module.exports = {
     publicPath: '/dist/',      
     umdNamedDefine: true
   },
-  plugins: [
-    new MiniCssExtractPlugin('style.bundle.css'),
-  ],
   module: {
     rules: [
       {
@@ -28,13 +23,8 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          "css-loader"
-        ]
+        test:/\.css$/,
+        use:['style-loader','css-loader']
       }
     ],
   },
