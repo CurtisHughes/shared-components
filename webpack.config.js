@@ -9,8 +9,7 @@ module.exports = {
   output: {
     path: dist,
     filename: 'app.bundle.js',
-    libraryTarget: 'umd',      
-    publicPath: '/dist/',      
+    libraryTarget: 'umd',
     umdNamedDefine: true
   },
   module: {

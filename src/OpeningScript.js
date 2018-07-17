@@ -1,5 +1,6 @@
 import React from 'react';
 import './OpeningScript.scss';
+import svg from './openingClosingScript.svg';
 
 const OpeningScript = (props) => {
     const openingScriptMap = {
@@ -17,6 +18,7 @@ const OpeningScript = (props) => {
         id="OpeningScript"
         key="OpeningScript">
         <li>
+          { svg }
           <span />
           <span>
             { formatOpeningScriptText(openingScriptMap, props.openingScriptText) }

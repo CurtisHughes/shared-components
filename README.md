@@ -33,3 +33,18 @@ const AnotherComponent = (props: Props) => (
   </div>
 // ...
 ```
+
+### Webpack
+The project utilizes [webpack](https://webpack.js.org/) in order to build and compile shared components into a single distribution file. There are a couple of specific configurations related to this process:
+```javascript
+{
+  // ...
+  output: {
+    path: dist,
+    filename: 'app.bundle.js',
+    libraryTarget: 'umd', // <-- This exposes your library under all the module definitions, allowing it to work with CommonJS, AMD and as global variable.
+    umdNamedDefine: true // <-- Will name the AMD module of the UMD build. Otherwise an anonymous define is used
+  },
+  // ...
+}
+```
