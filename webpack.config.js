@@ -9,8 +9,7 @@ module.exports = {
   output: {
     path: dist,
     filename: 'app.bundle.js',
-    libraryTarget: 'umd',
-    umdNamedDefine: true
+    libraryTarget: 'commonjs'
   },
   module: {
     rules: [
