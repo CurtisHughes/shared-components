@@ -1,31 +1,39 @@
 import * as React from 'react';
 import './OpeningScript.scss';
-import svg from './openingClosingScript.svg';
+import openingClosingScriptSvg from './openingClosingScript.svg';
 
-const OpeningScript = (props: any) => {
-    const openingScriptMap = {
-        technicianFirstName: props.technicianFirstName || '______',
-        customerFirstName: props.customerFirstName || '______',
-        customerLastName: props.customerLastName || '______'
-    };
+interface Props {
+  technicianFirstName: string;
+  customerFirstName: string;
+  customerLastName: string;
+  openingScriptText: string;
+}
 
-    const formatOpeningScriptText = (map: any = {}, openingScriptText: string = '') => Object.keys(map)
+const OpeningScript = (props: Props) => {
+  const openingScriptMap = {
+    technicianFirstName: props.technicianFirstName || '______',
+    customerFirstName: props.customerFirstName || '______',
+    customerLastName: props.customerLastName || '______'
+  };
+
+  const formatOpeningScriptText = (map: Object = {}, openingScriptText: string = '') => Object.keys(map)
         .reduce((text, key) => text.replace(`{{${key}}}`, map[key]), openingScriptText);
   
-    return (
+  return (
       <ul
-        className={"openingScript"}
+        className={'openingScript'}
         id="OpeningScript"
-        key="OpeningScript">
+        key="OpeningScript"
+      >
         <li>
-          <img src={svg}/>
+          <img src={openingClosingScriptSvg}/>
           <span />
           <span>
-            { formatOpeningScriptText(openingScriptMap, props.openingScriptText) }
+            {formatOpeningScriptText(openingScriptMap, props.openingScriptText)}
           </span>
         </li>
       </ul>
-    );
-  };
+  );
+};
 
-  export default OpeningScript;
+export default OpeningScript;

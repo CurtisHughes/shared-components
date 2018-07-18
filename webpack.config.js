@@ -5,41 +5,50 @@ const src = path.resolve(__dirname, 'src');
 
 // Webpack configuration
 module.exports = {
-  entry: path.join(src, 'index.js'),
-  output: {
-    path: dist,
-    filename: 'app.bundle.js',
-    libraryTarget: 'umd',
-    umdNamedDefine: true
-  },
-  devtool: 'inline-source-map',
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: [
-          'babel-loader',
+    entry: path.join(src, 'index.js'),
+    output: {
+        path: dist,
+        filename: 'app.bundle.js',
+        libraryTarget: 'umd',
+        umdNamedDefine: true
+    },
+    devtool: 'inline-source-map',
+    module: {
+        rules: [{
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    'babel-loader',
+                ],
+            },
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(png|jp(e*)g|svg)$/,
+                use: [{
+                    loader: 'url-loader',
+                }]
+            },
+            {
+                test: /\.tsx?$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                options: {
+                    failOnHint: true,
+                    tsConfigFile: require('./tslint.json')
+                },
+                exclude: /node_modules/
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
+            }
         ],
-      },
-      {
-        test: /\.scss$/,
-        use:['style-loader','css-loader','sass-loader']
-      },
-      {
-        test: /\.(png|jp(e*)g|svg)$/,  
-        use: [{
-            loader: 'url-loader',
-        }]
-      },
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-      }
-    ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
-  },
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    },
 };
