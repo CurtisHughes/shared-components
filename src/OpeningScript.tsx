@@ -1,6 +1,5 @@
 import * as React from 'react';
 import './OpeningScript.scss';
-import openingClosingScriptSvg from './openingClosingScript.svg';
 
 interface Props {
   technicianFirstName: string;
@@ -10,29 +9,32 @@ interface Props {
 }
 
 const OpeningScript = (props: Props) => {
-  const openingScriptMap = {
+  const openingScriptMap: Object = {
     technicianFirstName: props.technicianFirstName || '______',
     customerFirstName: props.customerFirstName || '______',
     customerLastName: props.customerLastName || '______'
   };
 
   const formatOpeningScriptText = (map: Object = {}, openingScriptText: string = '') => Object.keys(map)
-        .reduce((text, key) => text.replace(`{{${key}}}`, map[key]), openingScriptText);
-  
+    .reduce((text, key) => text.replace(`{{${key}}}`, map[key]), openingScriptText);
+
   return (
-      <ul
-        className={'openingScript'}
-        id="OpeningScript"
-        key="OpeningScript"
+    <ul
+      className={(props.openingScriptText) ? 'openingScript' : 'hiddenOpeningScript'}
+      id="OpeningScript"
+      key="OpeningScript"
+    >
+      <li
+        className={'openingScriptItem'}
       >
-        <li>
-          <img src={openingClosingScriptSvg}/>
-          <span />
-          <span>
-            {formatOpeningScriptText(openingScriptMap, props.openingScriptText)}
-          </span>
-        </li>
-      </ul>
+        <span
+          className={'openingScriptIcon'}
+        />
+        <span>
+          {formatOpeningScriptText(openingScriptMap, props.openingScriptText)}
+        </span>
+      </li>
+    </ul>
   );
 };
 

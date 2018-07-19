@@ -48,3 +48,25 @@ The project utilizes [webpack](https://webpack.js.org/) in order to build and co
   // ...
 }
 ```
+
+### Local Development
+In order to view your local changes for your shared component you will need to run the `example` project. First create a symbolic link in your machines npm directory using npm's `link` command:
+```bash
+# from project root
+$ npm link
+```
+Now navigate to the example directory and create another symbolic link to the root project:
+```bash
+$ cd ./example
+$ npm link shared-components
+```
+Run the example project with:
+```bash
+$ npm start
+```
+Finally run the core project with:
+```
+$ npm run webpack
+```
+
+

@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode development",
     "build": "babel src -d dist --copy-files",
     "prepare": "webpack --mode production",
-    "webpack": "webpack --mode development",
+    "webpack": "webpack --watch --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Curtis Hughes",
